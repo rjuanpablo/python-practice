@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_minivet_atencion_usuario,minivet.atencion.usuario,model_minivet_atencion,minivet.group_minivet_usuario,1,1,1,1
+access_minivet_animal_usuario,minivet.animal.usuario,model_minivet_animal,minivet.group_minivet_usuario,1,1,1,1
+access_minivet_sucursal_usuario,minivet.sucursal.usuario,model_minivet_sucursal,minivet.group_minivet_usuario,1,0,0,0
+access_minivet_sucursal_director,minivet.sucursal.director,model_minivet_sucursal,minivet.group_minivet_director,1,1,1,1

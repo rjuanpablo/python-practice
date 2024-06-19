@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Definimos una categoria de seguridad para el modulo -->
+        <record model="ir.module.category" id="minivet.module_category_minivet">
+            <field name="name">MiniVet</field>
+            <field name="description">Ayuda a gestionar veterinaria</field>
+            <field name="sequence">100</field>
+        </record>
+
+        <record model="res.groups" id="group_minivet_usuario">
+            <field name="name">Usuario</field>
+            <field name="category_id" ref="minivet.module_category_minivet" />
+            <field name="comment">Usuarios que gestionan animales y atenciones</field>
+            <!-- POSIBLE MODIFICACION - Si queremos añadir todos los usuarios dentro de un grupo
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />-->
+        </record>
+
+        <record model="res.groups" id="group_minivet_director">
+            <field name="name">Director</field>
+            <field name="category_id" ref="minivet.module_category_minivet" />
+            <field name="comment">Usuarios que gestionan las sucursales</field>
+            <!--Los miembros del grupo director tambien son miembros del grupo Usuarios-->
+            <field name="implied_ids" eval="[(4, ref('group_minivet_usuario'))]" />
+            <!--Añadimos a los usuarios administradores de Odoo-->
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]" />
+        </record>
+
+    </data>
+</odoo>

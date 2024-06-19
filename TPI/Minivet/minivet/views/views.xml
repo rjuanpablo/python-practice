@@ -1,0 +1,257 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="minivet.list">
+      <field name="name">minivet list</field>
+      <field name="model">minivet.minivet</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="minivet.action_window">
+      <field name="name">minivet window</field>
+      <field name="res_model">minivet.minivet</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="minivet.action_server">
+      <field name="name">minivet server</field>
+      <field name="model_id" ref="model_minivet_minivet"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="minivet" id="minivet.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="minivet.menu_1" parent="minivet.menu_root"/>
+    <menuitem name="Menu 2" id="minivet.menu_2" parent="minivet.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="minivet.menu_1_list" parent="minivet.menu_1"
+              action="minivet.action_window"/>
+    <menuitem name="Server to list" id="minivet" parent="minivet.menu_2"
+              action="minivet.action_server"/>
+-->
+
+    <!-- VISTAS DE SUCURSAL -->
+    <record model="ir.ui.view" id="minivet.sucursal_list_view">
+      <field name="name">minivet.sucursal.view.tree</field>
+      <field name="model">minivet.sucursal</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="lugares"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="minivet.sucursal_form_view">
+        <field name="name">minivet.sucursal.view.form</field>
+        <field name="model">minivet.sucursal</field>
+        <field name="arch" type="xml">
+          <form string="Formulario de Sucursal">
+              <sheet>
+                <div class="oe_title">
+                  <!--<label class="oe_edit_only" for="nombre" string="Dirección"/>-->
+                  <h1><field name="nombre" placeholder="Dirección"/></h1>
+                </div>
+                <group>
+                  <group>
+                      <separator string="Información general"/>
+                      <field name="lugares"/>
+                  </group>
+                </group>
+                <group>
+                      <field name="animal_ids"/>
+                </group>
+            </sheet>
+          </form>
+        </field>
+    </record>
+
+    <!-- VISTAS DE ANIMAL -->
+    <record model="ir.ui.view" id="minivet.animal_list_view">
+      <field name="name">minivet.animal.view.tree</field>
+      <field name="model">minivet.animal</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="tipo"/>
+          <field name="raza"/>
+          <field name="nacimiento"/>
+          <field name="edad"/>
+          <!--<field name="observacion"/>-->
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="minivet.animal_form_view">
+        <field name="name">minivet.animal.view.form</field>
+        <field name="model">minivet.animal</field>
+        <field name="arch" type="xml">
+          <form string="Información del animal">
+              <sheet>
+                <separator string="Información del animal" />
+
+
+                <group>
+                  <group>
+                      <field name="nombre"/>
+                      <field name="tipo"/>
+                      <field name="raza"/>
+                  </group>
+                  <group>
+                      <field name="nacimiento"/>
+                      <field name="edad"/>
+                      <field name="sucursal_id"/>
+                  </group>
+                </group>
+                 <group>
+                      <field name="atencion_ids"/>
+                  </group>
+            </sheet>
+          </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="minivet.animal_search_view">
+      <field name="name">minivet.animal.view.search</field>
+      <field name="model">minivet.animal</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="tipo"/>
+          <field name="raza"/>
+          <!--<filter name="averiado" string="Averiado" domain="[('averiado','=',True)]">
+          <group>
+            <filter name="group_by_averiado" string="Averiado" context="{'group_by':'averiado'}">
+          </group>-->
+          <!--<field name="observacion"/>-->
+        </search>
+      </field>
+    </record>
+
+    <!-- VISTAS DE ATENCION -->
+    <record model="ir.ui.view" id="minivet.atencion_list_view">
+      <field name="name">minivet.atencion.view.tree</field>
+      <field name="model">minivet.atencion</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="fecha"/>
+          <field name="tipo"/>
+          <field name="precio"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="minivet.atencion_form_view">
+        <field name="name">minivet.atencion.view.form</field>
+        <field name="model">minivet.atencion</field>
+        <field name="arch" type="xml">
+          <form string="Información del animal">
+              <sheet>
+                <separator string="Ficha de atención" />
+
+
+                <group>
+                  <group>
+                      <!--<field name="nombre"/>-->
+                      <field name="fecha"/>
+                      <field name="tipo"/>
+                  </group>
+                  <group>
+                      <field name="precio"/>
+                      <!--<field name="sucursal_id"/>-->
+                  </group>
+                </group>
+                <group>
+                      <field name="animal_ids"/>
+                  </group>
+            </sheet>
+          </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="minivet.atencion_calendar_view">
+      <field name="name">minivet.atencion.view.calendar</field>
+      <field name="model">minivet.atencion</field>
+      <field name="arch" type="xml">
+        <calendar string="Calendario de atención" date_start="fecha" color="tipo" mode="month">
+          <field name="tipo"/>
+          <field name="precio"/>
+        </calendar>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="minivet.atencion_search_view">
+      <field name="name">minivet.atencion.view.search</field>
+      <field name="model">minivet.atencion</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="fecha"/>
+          <field name="tipo" widget="selection"/>
+          <group>
+            <filter name="group_by_tipo" string="Tipo" context="{'group_by':'tipo'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+    <!-- DEFINICONES DE MENU -->
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="minivet.sucursal_action_window">
+      <field name="name">Sucursales</field>
+      <field name="res_model">minivet.sucursal</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="minivet.animal_action_window">
+      <field name="name">Animales</field>
+      <field name="res_model">minivet.animal</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="minivet.atencion_action_window">
+      <field name="name">Atenciones</field>
+      <field name="res_model">minivet.atencion</field>
+      <field name="view_mode">tree,form,calendar</field>
+      <field name="context">{'search_default_group_by_tipo':False}</field>
+    </record>
+
+    <!-- Top menu item -->
+
+    <menuitem name="MiniVet" id="minivet.menu_root" web_icon="minivet,static/description/icon.png"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Sucursales" id="minivet.sucursal_menu" parent="minivet.menu_root" action="minivet.sucursal_action_window"/>
+    <menuitem name="Animales" id="minivet.animal_menu" parent="minivet.menu_root" action="minivet.animal_action_window"/> <!-- SUCURSAL O ANIMAL MENU ? -->
+    <menuitem name="Atenciones" id="minivet.atencion_menu" parent="minivet.menu_root" action="minivet.atencion_action_window"/>
+
+  </data>
+</odoo>

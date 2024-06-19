@@ -1,0 +1,66 @@
+<odoo> 
+    <record id="minivet.sucursal_report" model="ir.actions.report">
+        <field name="name">Informe de sucursal</field>
+        <field name="model">minivet.sucursal</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">minivet.sucursal_report_view</field>
+        <field name="report_file">minivet.sucursal_report</field>
+        <field name="binding_model_id" ref="model_minivet_sucursal" />
+        <field name="binding_type">report</field>
+    </record>
+    
+    <template id="sucursal_report_view">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="sucursal">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 t-field ="sucursal.nombre" />
+                        <p>Número de lugare: <span t-field="sucursal.lugares" />
+                        </p>
+                        <h3>Animales:</h3>
+                        <!--
+                        <ul>
+                            <t t-foreach="sucursal.animal_ids" t-as="animal">
+                                <li>
+                                    <span t-field="animal.nombre"/>
+                                </li>
+                            </t>
+                        </ul>
+                        -->
+                        <table style="border:1px">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>|</th>
+                                    <th>Tipo</th>
+                                    <th>|</th>
+                                    <th>Raza</th>
+                                    <th>|</th>
+                                    <th>Nacimiento</th>
+                                    <th>|</th>
+                                    <th>Edad</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="sucursal.animal_ids" t-as="animal">
+                                <tr>
+                                    <td><span t-field="animal.nombre"/></td>
+                                    <td>|</td>
+                                    <td><span t-field="animal.tipo"/></td>
+                                    <td>|</td>
+                                    <td><span t-field="animal.raza"/></td>
+                                    <td>|</td>
+                                    <td><span t-field="animal.nacimiento"/></td>
+                                    <td>|</td>
+                                    <td><span t-field="animal.edad"/></td>
+                                </tr>   
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+
+    </template>
+</odoo>

@@ -1,0 +1,17 @@
+<odoo>
+<!-- 
+    <data>
+        ACA SE DEFINEN LOS DATOS QUE SE CARGAN SIEMPRE EN LA APLICACION 
+        expected '>', line 79, column 16 (demo.xml, line 79)
+        while parsing /odoo/odoo-server/addons/minivet/demo/demo.xml:79, 
+        near 
+        <record id="atencion1" model="minivet.atencion"> 
+        <field name="fecha" eval="datetime.now()"/> 
+        <field name="tipo">b</field> 
+        <field name="precio">400$</field> 
+        <field name="animal_ids" eval="[(6, 0, [ref('animal1'), ref('animal2')])]"/> 
+        </record>
+        
+    </data>
+-->
+</odoo>

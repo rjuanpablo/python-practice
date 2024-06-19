@@ -1,0 +1,18 @@
+Enunciado
+
+El sistema a desarrollar consiste en una plataforma web para facilitar la comunicación, búsqueda u ofrecimiento de servicios de atención veterinarias, guardería y/o peluquería para Gatos y perros. 
+Debe permitir al dueño de una mascota encontrar un determinado servicio. Por otro lado, están los prestadores, quienes publican los servicios que ofrecen junto con sus datos de contacto.
+Cuando un dueño de mascota inicia una búsqueda de servicio, ingresa su dirección para buscar en el mapa los prestadores más cercanos a la ubicación ingresada. Cada establecimiento cuenta con una reputación, obtenida por votos positivos o negativos de sus clientes.
+El dueño de la mascota se registra en la aplicación, resolviendo un captcha para verificar que no se trata de un bot. 
+En el caso de las veterinarias se deben certificar con su número de matrícula. 
+Los demás prestadores no matriculados, no cuentan con esa certificación.
+
+A tener en cuenta:
+
+-  Planteamos un sistema en un principio gratuito, similar a una mini red social
+- Nos centramos en estos servicio y en un futuro se pueden extender a mas sub-servicios afines
+- Planteamos una vinculación con la api: google maps, con el menú en donde escribimos la dirección, con eso google nos devuelva latitud y longitud para mostrar en un mapa.
+- Distintos tipos o roles de usuarios, por ejemplo: Prestadores y clientes.
+- Problema de confianza:
+- Integración con api: uso de captcha para verificar que los clientes no son bot.
+- Validacion de identidades: el veterinario se certifica con la matricula en la base de datos del colegio de veterinarios o al que pertenezca. (Debemos verificar si se puede obtener esa información). En el caso de usuarios, implementaríamos reputación con dedo hacia riba o hacia abajo, mismo hacia las veterinarias. 

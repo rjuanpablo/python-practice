@@ -1,0 +1,88 @@
+<odoo>
+    <data>
+<!--
+          <record id="object0" model="minivet.minivet">
+            <field name="name">Object 0</field>
+            <field name="value">0</field>
+          </record>
+
+          <record id="object1" model="minivet.minivet">
+            <field name="name">Object 1</field>
+            <field name="value">10</field>
+          </record>
+
+          <record id="object2" model="minivet.minivet">
+            <field name="name">Object 2</field>
+            <field name="value">20</field>
+          </record>
+
+          <record id="object3" model="minivet.minivet">
+            <field name="name">Object 3</field>
+            <field name="value">30</field>
+          </record>
+
+          <record id="object4" model="minivet.minivet">
+            <field name="name">Object 4</field>
+            <field name="value">40</field>
+          </record>
+-->
+
+      <record id="sucursal1" model="minivet.sucursal">
+        <field name="nombre">Centro</field>
+        <field name="lugares">5</field>
+      </record>
+      <record id="sucursal2" model="minivet.sucursal">
+        <field name="nombre">Norte</field>
+        <field name="lugares">11</field>
+      </record>
+
+      <record id="animal1" model="minivet.animal">
+        <field name="nombre">Pepe</field>
+        <field name="tipo">Perro</field>
+        <field name="raza">Mestizo</field>
+        <field name="nacimiento">2020-06-10</field>
+        <!--<field name="edad">1</field>-->
+        <field name="observacion">Tratamiento contra sarna</field>
+        <field name="sucursal_id" ref="sucursal1"></field>
+      </record>
+
+      <record id="animal2" model="minivet.animal">
+        <field name="nombre">Malaika</field>
+        <field name="tipo">Perro</field>
+        <field name="raza">Labrador</field>
+        <field name="nacimiento">2019-01-20</field>
+        <!--<field name="edad">2</field>-->
+        <field name="observacion">Sin observación</field>
+        <field name="sucursal_id" ref="sucursal1" />
+      </record>
+
+      <record id="animal3" model="minivet.animal">
+        <field name="nombre">Simón</field>
+        <field name="tipo">Gato</field>
+        <field name="raza">Mestizo</field>
+        <field name="nacimiento">2020-04-12</field>
+        <!--<field name="edad">1</field>-->
+        <field name="observacion">Sin observación</field>
+        <field name="sucursal_id" ref="sucursal2" />
+      </record>
+
+      <record id="animal4" model="minivet.animal">
+        <field name="nombre">Olivia</field>
+        <field name="tipo">Perro</field>
+        <field name="raza">Mestizo</field>
+        <field name="nacimiento">2018-07-15</field>
+        <!--<field name="edad">3</field>-->
+        <field name="observacion">Incompleto</field>
+        <field name="sucursal_id" ref="sucursal2" />
+      </record>
+  <!--
+      <record id="atencion1" model="minivet.atencion">
+        <field name="fecha"></field>
+        <field name="tipo">b</field>
+        <field name="precio">400$</field>
+        <field name="animal_ids" eval="[(6, 0, [ref('animal1'), ref('animal2')])]" />
+        <field name="animal_ids" ref="animal1" />
+      </record>
+      -->
+    </data>
+</odoo>
