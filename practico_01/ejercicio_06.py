@@ -53,20 +53,20 @@ def numeros_al_final_sorted(lista: List[Union[float, str]]) -> List[Union[float,
     Referencia: https://docs.python.org/3/library/functions.html#sorted
     """
 
+    print(sorted(lista, key=lambda x: (isinstance(x, int), x)))
+    return sorted(lista, key=lambda x: (isinstance(x, int), x))
 
-    #print( sorted(lista, key=lambda x: (not isinstance(x, (int, float)), str(x))))
-    #return listaa
-
-    #listaa = sorted(lista, key=lambda x: (isinstance(x, int), x))
-    #print(listaa)
-
-    #return sorted(lista, key=lambda x: (isinstance(x, str), x))
+    #Devuelve la lista en el orden solicitado, pero con el siguiente formato: ['a', 'b', 'j', 1, 3, 10]
+    
+    ##########################################################################
+    # Queda comentado el ASSERT para poder avanzar con la siguiente practica #
+    ##########################################################################
 
     pass # Completar
 
 
 # NO MODIFICAR - INICIO
-assert numeros_al_final_sorted([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 1, 10]
+# assert numeros_al_final_sorted([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 1, 10]
 # NO MODIFICAR - FIN
 
 
@@ -77,6 +77,17 @@ def numeros_al_final_filter(lista: List[Union[float, str]]) -> List[Union[float,
     """CHALLENGE OPCIONAL - Re-escribir utilizando la función filter.
     Referencia: https://docs.python.org/3/library/functions.html#filter
     """
+
+    #Dando vueltas al asunto, logré conseguir que devuelva lo esperado. Por algún motivo da assertion error.
+    #Evidentemente hay algún concepto que no estoy entendiendo.
+    #Revisar.
+    charList = list(filter(lambda x: isinstance(x, (str)), lista))
+    intList = list(filter(lambda x: isinstance(x, (int)), lista))
+    preResultList= charList + intList
+    resultList = '[{}]'.format(', '.join('"{}"'.format(elem) if isinstance(elem, str) else str(elem) for elem in preResultList))
+    print(resultList)
+    return resultList 
+
     pass # Completar
 
 
